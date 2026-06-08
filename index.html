@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Synthesis — Great Question Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="root">
+
+    <!-- ── Single-transcript tab ── -->
+    <section id="page-single" class="page active">
+      <div class="hero">
+        <div class="eyebrow">Great Question — research synthesis demo</div>
+        <h1>Turn interviews into insight, <em>instantly.</em></h1>
+        <p class="hero-sub">Paste a user interview transcript and watch AI surface themes, pull verbatims, and generate product opportunities.</p>
+      </div>
+
+      <div class="scenario-bar">
+        <button class="scenario-btn active" data-scenario="onboarding">Onboarding friction</button>
+        <button class="scenario-btn" data-scenario="pricing">Pricing confusion</button>
+        <button class="scenario-btn" data-scenario="collab">Collaboration gaps</button>
+        <button class="scenario-btn" data-scenario="blank">Blank — paste your own</button>
+      </div>
+
+      <div class="upload-zone">
+        <div class="upload-label">Interview transcript</div>
+        <textarea id="singleTranscript" class="transcript-area" placeholder="Paste a user interview here…"></textarea>
+        <div class="row-gap">
+          <button class="btn-primary" id="singleAnalyzeBtn">
+            <i class="ti ti-sparkles"></i> Synthesize research
+          </button>
+          <button class="btn-ghost" id="goMultiBtn">
+            <i class="ti ti-layers-subtract"></i> Multi-transcript mode
+          </button>
+        </div>
+        <div class="err-msg" id="singleErr"></div>
+      </div>
+
+      <div class="results-wrap" id="singleResults"></div>
+    </section>
+
+    <!-- ── Multi-transcript tab ── -->
+    <section id="page-multi" class="page">
+      <div class="hero">
+        <div class="eyebrow">Multi-transcript synthesis</div>
+        <h1>Find signal <em>across</em> participants.</h1>
+        <p class="hero-sub">Add two or more transcripts. AI clusters themes, scores confidence by frequency, and generates a stakeholder-ready view.</p>
+      </div>
+
+      <div class="tab-row">
+        <button class="tab active" data-tab="researcher"><i class="ti ti-microscope"></i> Researcher</button>
+        <button class="tab" data-tab="stakeholder"><i class="ti ti-presentation"></i> Stakeholder view</button>
+      </div>
+
+      <!-- Researcher pane -->
+      <div class="tab-pane active" id="pane-researcher">
+        <div class="add-row">
+          <textarea id="newTranscript" class="transcript-area" style="min-height:90px" placeholder="Paste interview transcript…"></textarea>
+          <div class="add-col">
+            <input id="newName" class="text-input" type="text" placeholder="Participant name" />
+            <button class="btn-ghost small" id="addBtn"><i class="ti ti-plus"></i> Add</button>
+            <button class="btn-ghost small" id="loadSamplesBtn"><i class="ti ti-download"></i> Load 3 samples</button>
+          </div>
+        </div>
+
+        <div id="transcriptsList"></div>
+        <div class="err-msg" id="multiErr"></div>
+
+        <button class="btn-primary" id="synthBtn">
+          <i class="ti ti-sparkles"></i> Synthesize across transcripts
+        </button>
+        <button class="btn-ghost" id="goSingleBtn" style="margin-left:8px">
+          <i class="ti ti-arrow-left"></i> Single transcript
+        </button>
+
+        <div id="researcherResults"></div>
+      </div>
+
+      <!-- Stakeholder pane -->
+      <div class="tab-pane" id="pane-stakeholder">
+        <div id="stakeholderContent">
+          <div class="empty-state">
+            <i class="ti ti-presentation" style="font-size:32px;display:block;margin-bottom:10px"></i>
+            Run synthesis first to generate the stakeholder view.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="data.js"></script>
+  <script src="api.js"></script>
+  <script src="render.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
