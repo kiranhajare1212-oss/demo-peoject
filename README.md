@@ -1,5 +1,5 @@
 # Research Synthesis Demo
-### Built for Great Question — by [Your Name]
+### Built for Great Question — by Kiran Hajare
 
 A lightweight AI-powered tool that synthesizes user interview transcripts into themes, verbatims, confidence scores, and a stakeholder-ready view.
 
